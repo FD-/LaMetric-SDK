@@ -1,7 +1,11 @@
+# Actions
+
 Actions allow apps to communicate with each other. They also allow apps to expose some functionality through the user interface of the LaMetric iOS and Android apps.
 
 An app's supported actions must be specified in its manifest.json file:
 
+```
+...
 "actions": {
         "countdown.pause": {
             "icon": ":res/pause.png",
@@ -19,11 +23,15 @@ An app's supported actions must be specified in its manifest.json file:
             "title": "{{action_start}}"
         }
     },
+...    
+```    
 
 The content of the actions field should be pretty self-explanatory. The title values in double curly brackets are keys for the localization system that will be replaced by the corresponding value in the user-configured device language. Unlocalized strings can be used as well.
 
 Actions that are meant for configuration purposes carrying more complex data are called commands and are specified in a dedicated manifest field:
 
+```
+...
 "commands": {
         "countdown.configure": {
             "params": {
@@ -36,7 +44,8 @@ Actions that are meant for configuration purposes carrying more complex data are
             }
         }
     },
-
+...    
+```   
 Commands and actions are exposed through the device's REST API interface, but only actions can be triggered through the iOS and Android apps.
 
 When an action or command request has been issued in another app, your app will receive an LRemoteActionRequest in its remoteActionRequest() method. Your app can then parse the request and respond with an LRemoteActionResponse via the LWidgetManager's sendRemoteActionResponse method. The calling application will then receive the response in its remoteActionResponse() method.
