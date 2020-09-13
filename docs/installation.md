@@ -27,4 +27,6 @@ LaMetric OS apps need to be linked against a few shared libraries included in th
 
 You should now be able to cross-compile the included sample application. Go to the sample folder of the SDK distribution and run make package. The resulting ipk file will be built to sample/dist. For deployment instructions, follow the steps from deployment.txt.
 
+## 4. Write your own app
+
 Please note I provide only minimal documentation of the SDK functionality. This is because most functions and classes are self-explanatory and most of the remaining stuff I haven't tried myself. However, I did document all odd behavior I found while trying to get my apps to work. If you need any API that I have not documented / isn't self-explanatory, I recommend using the open-source Ghidra tool for figuring out how any of the official apps make use of the particular functionality you're interested in.
