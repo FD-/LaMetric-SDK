@@ -3,9 +3,9 @@ An unofficial SDK for developing native standalone LaMetric Time apps
 
 # Installation
 
-__IMPORTANT__: Only ever run apps on your LaMetric Time device whose source code you have seen and checked before! All apps on the device share the same Linux user, so they have access to all your data (and credentials) stored on the LaMetric Time!
-
 __PLEASE NOTE__: This is an inofficial SDK and in no way endorsed with SmartAtoms, the developer of the LaMetric Time device. Should you be a representative of SmartAtoms or the LaMetric team, please let me know how you feel about this project!
+
+__IMPORTANT__: Only ever run apps on your LaMetric Time device whose source code you have seen and checked before! All apps on the device share the same Linux user, so they have access to all your data (and credentials) stored on the LaMetric Time!
 
 # Steps
 
@@ -55,6 +55,10 @@ widget.sh create com.lametric.sdk.sample
 ```
 
 Once you have installed the package and only change the executable, you can update the app without reinstalling the whole package. Just copy the executable to the application folder under `/lametric/data/apps/{package_name}. The OS will automatically notice the program changed and start it anew.
+
+# Current State
+
+I used the free Ghidra tool for reverse-engineering headers for most of the functionality lfoundation (the main shared library) provides for building applications. I deliberately haven't reverse-engineered classes that seemed irrelevant for custom app development. Although all the functions and classes I used in my own custom apps worked fine, the headers could very well still contain some errors (pointer type where a value type is actually used, missing or wrong const qualifier etc).
 
 # Documentation
 
