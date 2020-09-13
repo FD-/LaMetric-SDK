@@ -1,0 +1,42 @@
+{
+    "build_number": "1",
+    "description": "Inofficial LaMetric SDK sample",
+    "entry": "sample",
+    "icon": ":res/icon.png",
+    "kind": "widget",
+    "package": "com.lametric.sdk.sample",
+    "screenshots": [
+        ":res/screenshot.png"
+    ],
+    "target_os_version": ">=1.7.0",
+    "title": "SDK Sample",
+    "vendor": "LaMetric",
+    "version": "1.0.0",
+    "version_code": 1,
+    "settings_descriptor": [
+        {
+            "title": "Settings",
+            "options": [
+                {
+                    "title": "Notification Sound",
+                    "id": "http://com.lametric.sdk.sample/sound"
+                }
+            ]
+        }
+    ],
+    "settings_schema": {
+        "id": "http://com.lametric.sdk.sample",
+        "$schema": "http://json-schema.org/draft-04/schema",
+        "properties": {
+            "sound": {
+                "id": "http://com.lametric.sdk.sample/sound",
+                "type": "string",
+                "required": false,
+                "category": "notifications",
+                "format": "sound"
+            }
+        },
+        "required": false,
+        "type": "object"
+    }
+}
