@@ -1,3 +1,5 @@
+# Debugging
+
 For debugging your custom code running on the LaMetric Time hardware, you're mostly limited to the logcat infrastructure LaMetric OS includes.
 
 Logcat was originally developed for the Android OS, but apparently, it has found its way into other embedded Linux systems as well. It consists of a kernel driver that provides access to multiple different message buffers.
