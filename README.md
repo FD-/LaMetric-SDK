@@ -26,7 +26,7 @@ Since the LaMetric OS distribution doesn't include a compiler, you'll have to cr
 
 ## 2. Get the system libraries
 
-LaMetric OS apps need to be linked against a few shared libraries included in the LaMetric OS distribution. Copy the contents of /usr/lib from your LaMetric device to the lib folder of the SDK distribution.
+LaMetric OS apps need to be linked against a few shared libraries included in the LaMetric OS distribution. Without SSH access to your device, you'll have to download a firmware image from https://firmware.lametric.com and extract the /usr/lib folder from the nested rootfs squashfs file. In case you have SSH access to the device, just copy the contents of /usr/lib from your LaMetric device to the lib folder of the SDK distribution.
 
 ## 3. Build the sample app
 
