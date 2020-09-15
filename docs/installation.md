@@ -1,14 +1,16 @@
 # Installation
 
-__IMPORTANT__: Only ever run apps on your LaMetric Time device whose source code you have seen and checked before! All apps on the device share the same Linux user, so they have access to all your data (and credentials) stored on the LaMetric Time!
-
 __PLEASE NOTE__: This is an inofficial SDK and in no way endorsed with SmartAtoms, the developer of the LaMetric Time device. Should you be a representative of SmartAtoms or the LaMetric team, please let me know how you feel about this project!
+
+__IMPORTANT__: Only ever run apps on your LaMetric Time device whose source code you have seen and checked before! All apps on the device share the same Linux user, so they have access to all your data (and credentials) stored on the LaMetric Time!
 
 # Steps
 
-## 0. Get SSH access
+## 0. Get SSH access (Optional)
 
-Installing custom apps on your LaMetric device requires having SSH access to the device. Although SSH access is enabled on the stock firmware, it's protected by an unknown password. In order to circumvent this password, you have two options:
+Installing custom apps on your LaMetric device __no longer requires__ having SSH access to the device, so it works on the original stock firmware. See the Deployment section below for details.
+
+Still, having SSH access is the most convenient method for developing custom apps for the LaMetric Time, so you may still be interested in enabling it. Although SSH access is already enabled on the stock firmware, it's protected by an unknown password. In order to circumvent this password, you have two options:
 
 -   The LaMetric has a firmware flashing mode, but it performs a signature check, so that only official firmware files can be installed. However, a LaMetric user has figured out the original signing key, and released a version of firmware version 2.0.24 that has SSH access enabled and can be installed via USB using the official firmware update procedure described at https://help.lametric.com/support/solutions/articles/6000095176-lametric-time-can-not-boot-up-and-shows-the-loading-indicator-all-the-time-4-dots-are-spinning-aro. Refer to https://github.com/chorankates/h4ck/issues/2 for details.
     
@@ -21,7 +23,7 @@ Since the LaMetric OS distribution doesn't include a compiler, you'll have to cr
 
 ## 2. Get the system libraries
 
-LaMetric OS apps need to be linked against a few shared libraries included in the LaMetric OS distribution. Copy the contents of /usr/lib from your LaMetric device to the lib folder of the SDK distribution.
+LaMetric OS apps need to be linked against a few shared libraries included in the LaMetric OS distribution. Without SSH access to your device, you'll have to download a firmware image from https://firmware.lametric.com and extract the /usr/lib folder from the nested rootfs squashfs file. In case you have SSH access to the device, just copy the contents of /usr/lib from your LaMetric device to the lib folder of the SDK distribution.
 
 ## 3. Build the sample app
 
