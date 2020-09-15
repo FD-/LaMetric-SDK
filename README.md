@@ -9,7 +9,7 @@ __IMPORTANT__: Only ever run apps on your LaMetric Time device whose source code
 
 # Steps
 
-## 0. Get SSH access
+## 0. Get SSH access (Optional)
 
 Installing custom apps on your LaMetric device __no longer requires__ having SSH access to the device, so it works on the original stock firmware. See the Deployment section below for details.
 
