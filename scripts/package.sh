@@ -48,6 +48,11 @@ echo "Architecture: arm" >> $PROJECT_DIST_DIR/control/control
 echo "Homepage: NA" >> $PROJECT_DIST_DIR/control/control
 echo "Source: NA" >> $PROJECT_DIST_DIR/control/control
 
+echo "#!/bin/ash" >> $PROJECT_DIST_DIR/control/postinst
+echo "echo 'Creating widget...'" >> $PROJECT_DIST_DIR/control/postinst
+echo "/usr/bin/widget.sh create $PACKAGE_NAME" >> $PROJECT_DIST_DIR/control/postinst
+chmod +x $PROJECT_DIST_DIR/control/postinst
+
 echo "Creating data directory..."
 mkdir $PROJECT_DIST_DIR/data
 mkdir -p $PROJECT_DIST_DIR/data/$INSTALL_DIR/
