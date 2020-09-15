@@ -66,7 +66,7 @@ Custom apps can be installed on stock (unmodified, original) firmware. Convenien
 ["URL_TO_IPK"] 
 ```
 
-where _URL_TO_IPK_ is the url to the IPK mentioned in step 1
+where _URL_TO_IPK_ is the HTTP (not HTTPS!) url to the IPK mentioned in step 1.
 
 7. Choose Basic Auth with username 'dev' and the API key from step 3 as the password
 
