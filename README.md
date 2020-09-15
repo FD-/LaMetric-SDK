@@ -90,7 +90,7 @@ opkg-cl install com.lametric.sdk.sample_1.0.0.ipk
 widget.sh create com.lametric.sdk.sample
 ```
 
-Once you have installed the package and only change the executable, you can update the app without reinstalling the whole package. Just copy the executable to the application folder under `/lametric/data/apps/{package_name}. The OS will automatically notice the program changed and start it anew.
+Once you have installed the package and only change the executable, you can update the app without reinstalling the whole package. Just copy the executable to the application folder under `/lametric/data/apps/{package_name}`. The OS will automatically notice the program changed and start it anew.
 
 # Current State
 
