@@ -14,24 +14,24 @@
 class LFetchTaskPrivate;
 
 enum LFetchTaskMethod {
-	LFetchTaskMethodGet = 0,
-	LFetchTaskMethodPost = 1,
-	LFetchTaskMethodPut = 2,
-	LFetchTaskMethodPostForm = 3,
-	LFetchTaskMethodDelete = 4,
-	LFetchTaskMethodCustom = 5
+    LFetchTaskMethodGet = 0,
+    LFetchTaskMethodPost = 1,
+    LFetchTaskMethodPut = 2,
+    LFetchTaskMethodPostForm = 3,
+    LFetchTaskMethodDelete = 4,
+    LFetchTaskMethodCustom = 5
 };
 
 class LFetchTask : public QObject {
     Q_OBJECT
 
 public:
-	enum LFetchTaskType {
-		LFetchTaskTypeOneShot = 0,
-		LFetchTaskTypeRepeated = 1
+    enum LFetchTaskType {
+        LFetchTaskTypeOneShot = 0,
+        LFetchTaskTypeRepeated = 1
 	};
 
-	LFetchTask(int id);
+    LFetchTask(int id);
     void clearHeader();
     int connectionTimeout() const;
     LFetchTaskMethod fetchMethod();
@@ -68,16 +68,16 @@ public:
 
 public slots:
     virtual bool prepare();
-	virtual void run();
+    virtual void run();
 
 signals:
-	/** Emitted at the interval set via setInvokeInterval(). The DataFetcher
+    /** Emitted at the interval set via setInvokeInterval(). The DataFetcher
 	    connects on the signal to run the FetchTask. **/
-	void doUpdate();
-	void success(QByteArray *body);
-	void failure(int code, QByteArray *body);
-	void invokeIntervalChanged(int newInterval);
-	void typeChanged(LFetchTaskType type);	
+    void doUpdate();
+    void success(QByteArray *body);
+    void failure(int code, QByteArray *body);
+    void invokeIntervalChanged(int newInterval);
+    void typeChanged(LFetchTaskType type);	
 
 protected:
     /** Implement this method in your subclasses to parse the retrieved 
