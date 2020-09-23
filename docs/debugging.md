@@ -17,3 +17,32 @@ Luckily, there is an API endpoint (of the v1 API, not the publicly documented v2
 ### With SSH access
 
 For viewing the logged messages, just start the logcat tool in an SSH session to your LaMetric Time. You'll see not only the output of your application, but also useful information about the system state or other applications.
+
+# Debugging HTTP/HTTPS requests
+
+For inspecting the HTTP requests your app makes, you can configure a web proxy that intercepts the network traffic from your app. To do this, set the http_proxy environment variable before making web requests in your program like so:
+
+```
+setenv("http_proxy", "http://{proxy_ip}:{proxy_port}", 1);
+```
+
+Please note this only works for HTTP requests by default, since intercepting HTTPS requires resigning all traffic with a custom CA certificate at the proxy. If you need to inspect HTTPS traffic, you'll have to add the public part of your CA certificate to the LaMetric's certificate store at /etc/ssl/cert:
+
+1. Copy the certificate in both crt and pem format to /etc/ssl/cert on the device via SSH
+2. Append it to the ca-certificates.crt file: 
+   
+```
+cat mitmproxy.crt >> ca-certificates.crt
+```
+
+3. Calculate the hash of your certificate (on your computer; LaMetricOS doesn't include the openssl tool):
+
+```
+openssl x509 -hash -noout -in mitmproxy.pem
+```
+
+4. Add a symlink from the hash to the certificate:
+
+```
+ln -s /etc/ssl/cert/mitmproxy.pem /etc/ssl/cert/{hash}.0
+```
