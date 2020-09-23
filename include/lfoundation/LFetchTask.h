@@ -37,7 +37,7 @@ public:
     LFetchTaskMethod fetchMethod();
     bool headerContains(const QString& key);
     void headerInsert(const QString& key, const QString& value);
-    QString *headerValue(const QString& key);
+    QString headerValue(const QString& key);
     int id();
     int invokeInterval();
     bool isRetryOnErrorEnabled();
@@ -61,6 +61,7 @@ public:
     LFetchTaskType type() const;
     QUrl *url() const;
 
+    /** Setting the URL clears the headers, so make sure you set it before adding any headers! **/
     virtual void setUrl(QUrl& url);
     virtual void setUrl(const QString& url);
     virtual void *getParsedData();
@@ -84,5 +85,5 @@ protected:
     virtual void processResult(QByteArray& data);	
 
 private:
-    LFetchTaskPrivate *p;    
+    LFetchTaskPrivate *p;
 };
