@@ -29,7 +29,7 @@ public:
     enum LFetchTaskType {
         LFetchTaskTypeOneShot = 0,
         LFetchTaskTypeRepeated = 1
-	};
+    };
 
     LFetchTask(int id);
     void clearHeader();
