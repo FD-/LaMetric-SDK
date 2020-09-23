@@ -99,4 +99,6 @@ public slots:
 
 private:
     LApplicationPrivate* p;
+    /** We get some strange initial values in the first member of subclasses without this **/
+    void* unknown;
 };
