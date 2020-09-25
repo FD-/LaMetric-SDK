@@ -24,6 +24,7 @@ For inspecting the HTTP requests your app makes, you can configure a web proxy t
 
 ```
 setenv("http_proxy", "http://{proxy_ip}:{proxy_port}", 1);
+setenv("any_proxy", "http://{proxy_ip}:{proxy_port}", 1);
 ```
 
 Please note this only works for HTTP requests by default, since intercepting HTTPS requires resigning all traffic with a custom CA certificate at the proxy. If you need to inspect HTTPS traffic, you'll have to add the public part of your CA certificate to the LaMetric's certificate store at /etc/ssl/cert:
