@@ -48,7 +48,7 @@ public:
     void setScrollStyle(TextLableScrollType type);
     void setTextColor(QColor color);
     void setWaitForIconAnimationEndBeforeScroll(bool wait);
-    QString* text();
+    QString text() const;
     int textAlignment();
     bool isAnimating() const;
     bool isIconNull() const;
