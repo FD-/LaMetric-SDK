@@ -9,15 +9,15 @@ __IMPORTANT__: Only ever run apps on your LaMetric Time device whose source code
 
 # Steps
 
-## 0. Get SSH access (Optional)
+## 0. Get SSH access
 
-Installing custom apps on your LaMetric device __no longer requires__ having SSH access to the device, so it works on the original stock firmware. See the Deployment section below for details.
+Installing custom apps __on recent firmware versions__ requires SSH access to the device. If you use a firmware earlier than 2.1.0, you can use the method described under the Legacy Deployment section below for details.
 
-Still, having SSH access is the most convenient method for developing custom apps for the LaMetric Time, so you may still be interested in enabling it. Although SSH access is already enabled on the stock firmware, it's protected by an unknown password. In order to circumvent this password, you have two options:
+Although SSH access is already enabled on the stock firmware, it's protected by an unknown password. In order to circumvent this password, you have two options:
 
 -   The LaMetric has a firmware flashing mode, but it performs a signature check, so that only official firmware files can be installed. However, a LaMetric user has figured out the original signing key, and released a version of firmware version 2.0.24 that has SSH access enabled and can be installed via USB using the official firmware update procedure described at https://help.lametric.com/support/solutions/articles/6000095176-lametric-time-can-not-boot-up-and-shows-the-loading-indicator-all-the-time-4-dots-are-spinning-aro. Refer to https://github.com/chorankates/h4ck/issues/2 for details.
     
--   Alternatively, you can physically open your device and remove the micro SD card that is soldered onto the main PCB. Mount it on a computer and modify the root password hash in /etc/shadow. This should work even on newer versions of the LaMetric OS firmware.
+-   Alternatively, you can physically open your device and remove the micro SD card that is mounted on the main PCB. Put it in a computer and modify the root password hash in /etc/shadow. This should work even on newer versions of the LaMetric OS firmware.
     
 
 ## 1. Set up the compiler toolchain
@@ -42,11 +42,13 @@ Apps are distributed as ipk files, a format designed for use on embedded Linux p
 
 If you invoke the package.sh script manually, have a look at the comments in the script itself.
 
-For actually installing the packaged application on your LaMetric Time, your options depend on whether you have SSH access to the device.
+For actually installing the packaged application on your LaMetric Time, your options depend on the firmware version of your LaMetric device.
 
-### Without SSH access
+### Legacy Firmware: Without SSH access
 
-Custom apps can be installed on stock (unmodified, original) firmware. Conveniently, we can creatively misuse the v1 REST API that the Android and iOS apps use for communicating with the LaMetric Time (not the same as the publicly documented v2 API) for installing our custom-built IPK files on the device, even if they are not included in LaMetric's official repository (which backs their app store). Luckily, the v1 API uses the same authentication as the v2 API, so this method is accessible to users consciously installing custom apps, but protected from being accessed by adversaries, because the credentials are bound to a specific device.
+Custom apps can be installed without SSH access on legacy (before 2.1.0) versions of the stock (unmodified, original) firmware. Unfortunately, the folks at SmartAtoms closed this loophole after I documented it here. 
+
+Conveniently, we can creatively misuse the v1 REST API that the Android and iOS apps use for communicating with the LaMetric Time (not the same as the publicly documented v2 API) for installing our custom-built IPK files on the device, even if they are not included in LaMetric's official repository (which backs their app store). Luckily, the v1 API uses the same authentication as the v2 API, so this method is accessible to users consciously installing custom apps, but protected from being accessed by adversaries, because the credentials are bound to a specific device.
 
 #### Steps:
 
@@ -99,3 +101,4 @@ I used the free Ghidra tool for reverse-engineering headers for most of the func
 # Documentation
 
 For now, I only documented a few subsystems of the SDK in the docs folder of the SDK distribution. Most of the SDK functions should be self-explanatory, and the sample project should provide a good starting point for your own apps. If you have created something that could be useful to others as well, please publish the source code! Likewise, if you have questions or suggestions for this unofficial SDK, please open an issue or pull request on GitHub.
+
