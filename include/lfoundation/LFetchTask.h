@@ -22,6 +22,13 @@ enum LFetchTaskMethod {
     LFetchTaskMethodCustom = 5
 };
 
+// SDK: Added helper
+inline int generateNextId() {
+    static int LFetchTaskNextTaskId = 0;
+    return LFetchTaskNextTaskId++;
+}
+#define LFetchTask_NextId() LFetchTask(generateNextId())
+
 class LFetchTask : public QObject {
     Q_OBJECT
 
