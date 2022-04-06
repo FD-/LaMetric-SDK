@@ -10,8 +10,8 @@ MOC_HEADERS = src/app.h src/PageWithIconAndText.h src/ChartPage.h
 
 CPPFLAGS = -Wall -marm -std=c++11
 INC_DIRS = -I../include
-LIBS = -L../lib/ -lqjson -lcurl -lLog -llfoundation -lpulse-simple -lpulse \
-  -lQtDBus -lQtXml  -lQtGui -lQtNetwork -lQtCore -lpthread -Wl,-rpath-link=../lib/ -Wl,-rpath-link=../lib/pulseaudio
+LIBS = -L../lib/ -lqjson -lLog -llfoundation -lpulse-simple -lpulse \
+  -lQtDBus -lQtXml  -lQtGui -lQtNetwork -lQtCore -lpthread -Wl,-rpath-link=../lib/ -Wl,-rpath-link=../lib/pulseaudio -lcurl -ldl
 
 # Change postfixes
 MOC_SOURCES = $(patsubst $(SOURCE_DIR)/%.h,$(BUILD_DIR)/%.moc.cpp,$(MOC_HEADERS))

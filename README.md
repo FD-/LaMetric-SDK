@@ -22,7 +22,39 @@ Although SSH access is already enabled on the stock firmware, it's protected by 
 
 ## 1. Set up the compiler toolchain
 
-Since the LaMetric OS distribution doesn't include a compiler, you'll have to cross-compile your custom apps on a Linux system (I'm using a Ubuntu virtual machine). I spent quite some time trying to find a cross-compiler toolchain that is compatible with the LaMetric's dynamic linker and eventually settled on using the oldest available Linaro arm-linux-gnueabi toolchain from https://releases.linaro.org/components/toolchain/binaries/4.9-2016.02/arm-linux-gnueabi/. Although this is not the exact same toolchain as used by the LaMetric team (they use a custom-built buildroot toolchain), the produced binaries are compatible, which is good enough for us. Download gcc-linaro-4.9-2016.02-x86_64_arm-linux-gnueabi.tar.xz, extract it and make sure all the included tools are available in your PATH.
+Since the LaMetric OS distribution doesn't include a compiler, you'll have to cross-compile your custom apps on a Linux system (I'm using a Ubuntu virtual machine). 
+
+### x86_64 build machines
+I spent quite some time trying to find a cross-compiler toolchain that is compatible with the LaMetric's dynamic linker and eventually settled on using the oldest available Linaro arm-linux-gnueabi toolchain. Although this is not the exact same toolchain as used by the LaMetric team (they use a custom-built buildroot toolchain), the produced binaries are compatible, which is good enough for us. 
+
+1. Open the website at https://releases.linaro.org/components/toolchain/binaries/4.9-2016.02/arm-linux-gnueabi/. 
+2. Download gcc-linaro-4.9-2016.02-x86_64_arm-linux-gnueabi.tar.xz, 
+3. Extract it and make sure all the included tools are available in your PATH.
+
+### aarch64 build machines
+There is a compatible compiler for Ubuntu aarch64 systems in the Ubuntu Xenial repositories.
+
+1. Edit /etc/apt/source.list to add xenial sources:
+
+```bash
+deb http://ports.ubuntu.com/ubuntu-ports xenial main
+deb http://ports.ubuntu.com/ubuntu-ports xenial universe
+```
+
+2. Install the gcc-4.9 cross-compiler:
+
+```bash
+sudo apt update
+sudo apt install gcc-4.9-arm-linux-gnueabi
+sudo apt install g++-4.9-arm-linux-gnueabi
+```
+
+3. Add a symlink for the compilers
+
+```bash
+sudo ln -s /usr/bin/arm-linux-gnueabi-gcc-4.9 /usr/bin/arm-linux-gnueabi-gcc 
+sudo ln -s /usr/bin/arm-linux-gnueabi-g++-4.9 /usr/bin/arm-linux-gnueabi-g++
+```
 
 ## 2. Get the system libraries
 
