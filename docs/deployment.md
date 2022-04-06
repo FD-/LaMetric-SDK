@@ -4,11 +4,13 @@ Apps are distributed as ipk files, a format designed for use on embedded Linux p
 
 If you invoke the package.sh script manually, have a look at the comments in the script itself.
 
-For actually installing the packaged application on your LaMetric Time, your options depend on whether you have SSH access to the device.
+For actually installing the packaged application on your LaMetric Time, your options depend on the firmware version of your LaMetric device.
 
-### Without SSH access
+### Legacy Firmware: Without SSH access
 
-Custom apps can be installed on stock (unmodified, original) firmware. Conveniently, we can creatively misuse the v1 REST API that the Android and iOS apps use for communicating with the LaMetric Time (not the same as the publicly documented v2 API) for installing our custom-built IPK files on the device, even if they are not included in LaMetric's official repository (which backs their app store). Luckily, the v1 API uses the same authentication as the v2 API, so this method is accessible to users consciously installing custom apps, but protected from being accessed by adversaries, because the credentials are bound to a specific device.
+Custom apps can be installed without SSH access on legacy (before 2.1.0) versions of the stock (unmodified, original) firmware. Unfortunately, the folks at SmartAtoms closed this loophole after I documented it here. 
+
+Conveniently, we can creatively misuse the v1 REST API that the Android and iOS apps use for communicating with the LaMetric Time (not the same as the publicly documented v2 API) for installing our custom-built IPK files on the device, even if they are not included in LaMetric's official repository (which backs their app store). Luckily, the v1 API uses the same authentication as the v2 API, so this method is accessible to users consciously installing custom apps, but protected from being accessed by adversaries, because the credentials are bound to a specific device.
 
 #### Steps:
 
@@ -28,7 +30,7 @@ Custom apps can be installed on stock (unmodified, original) firmware. Convenien
 ["URL_TO_IPK"] 
 ```
 
-where _URL_TO_IPK_ is the url to the IPK mentioned in step 1
+where _URL_TO_IPK_ is the HTTP (not HTTPS!) url to the IPK mentioned in step 1.
 
 7. Choose Basic Auth with username 'dev' and the API key from step 3 as the password
 
