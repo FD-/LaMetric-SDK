@@ -5,7 +5,7 @@ An unofficial SDK for developing native standalone LaMetric Time apps
 
 __PLEASE NOTE__: This is an inofficial SDK and in no way endorsed with SmartAtoms, the developer of the LaMetric Time device. Should you be a representative of SmartAtoms or the LaMetric team, please let me know how you feel about this project!
 
-__IMPORTANT__: Only ever run apps on your LaMetric Time device whose source code you have seen and checked before! All apps on the device share the same Linux user, so they have access to all your data (and credentials) stored on the LaMetric Time!
+__IMPORTANT__: Only ever run custom apps on your LaMetric Time device whose source code you have seen and checked before! All apps on the device share the same Linux user, so they have access to all your data (and credentials) stored on the LaMetric Time!
 
 # Steps
 
