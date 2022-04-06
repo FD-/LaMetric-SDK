@@ -27,8 +27,8 @@ class LScrollLabelWidget : public LWidgetBase {
 
 public:
     enum Scroll {
-        Scroll0 = 0,
-        Scroll1 = 1
+        ScrollUntilTextEndVisible = 0,
+        ScrollUntilTextEndGone = 1
     };
 
     LScrollLabelWidget(QWidget *parent);
@@ -44,7 +44,7 @@ public:
     void setScrollEndFlag(Scroll flag);
     void setText(const QString &text, bool unknown);
     void resetPositions();
-    void setDelays(int delay1, int delay2);
+    void setDelays(int beforeScrollDelay, int afterScrollDelay);
     void setScrollStyle(TextLableScrollType type);
     void setTextColor(QColor color);
     void setWaitForIconAnimationEndBeforeScroll(bool wait);
