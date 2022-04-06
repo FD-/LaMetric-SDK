@@ -19,13 +19,13 @@ public:
     void *firmwareVersion() const;
     void flushBufferAndDisablBuffering();
     bool hasFeature(DisplayFeature feature);
-    int height();
+    int height() const;
     bool isFeatureEnabled(DisplayFeature feature);
     QString *name() const;
     unsigned int scanRate() const;
     void setFeatureEnabled(DisplayFeature feature, bool enabled);
     void setScanRate(unsigned int rate);
-    int width();
+    int width() const;
 
 signals:
 	void scanRateChanged();
