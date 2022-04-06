@@ -19,13 +19,13 @@ class LNotificationManager : public QObject {
 public:
     static LNotificationSound *notificationSoundById(SoundCategory category, QString *id);
 
-  	LNotificationManager(LApplication *application);
-  	LNotification *createBuiltinNotification(int unknown, NotificationType type);
-  	LNotification *createIconTextNotification(int unknown, const QString &icon, const QString &text);
+    LNotificationManager(LApplication *application);
+    LNotification *createBuiltinNotification(int unknown, NotificationType type);
+    LNotification *createIconTextNotification(int unknown, const QString &icon, const QString &text);
     LNotification *createNotification(int unknown);
     LNotification *createSoundNotification(int unknown, NotificationSoundId sound);
     LNotification *createTextNotification(int unknown, const QString &text);
-    void createWaitNotification(int unknown);
+    LNotification *createWaitNotification(int unknown);
     void dismiss(LNotification *notification);
     void dismiss(int id);
     void dismissAll();
