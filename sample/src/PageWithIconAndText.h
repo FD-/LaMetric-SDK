@@ -25,7 +25,7 @@ public:
         timer->setSingleShot(true);
         timer->setInterval(5000);
         connect(timer, SIGNAL(timeout()), this, SIGNAL(finishedScrolling()));
-        scrollLabelWidget->setScrollEndFlag(LScrollLabelWidget::Scroll1);
+        scrollLabelWidget->setScrollEndFlag(LScrollLabelWidget::ScrollUntilTextEndGone);
         scrollLabelWidget->setDelays(1000, 500);
         scrollLabelWidget->setGeometry(this->geometry());
         scrollLabelWidget->move(QPoint(0, 0));
